@@ -1,162 +1,180 @@
-// Theme Management (runs immediately to prevent flash of un-themed content)
-(function() {
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', initialTheme);
-})();
+// Mobile menu
+const menuToggle = document.getElementById("menu-toggle");
+const dropdown = document.getElementById("dropdown");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("theme-toggle");
-  
-  if (themeToggle) {
-    const updateToggleIcon = (theme) => {
-      const icon = themeToggle.querySelector("i");
-      if (icon) {
-        if (theme === "light") {
-          icon.className = "fas fa-moon";
-        } else {
-          icon.className = "fas fa-sun";
-        }
-      }
-    };
+function setMenu(open) {
+  dropdown.classList.toggle("show", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+}
 
-    // Initialize the icon based on current theme state
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-    updateToggleIcon(currentTheme);
-
-    themeToggle.addEventListener("click", () => {
-      const activeTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", activeTheme);
-      localStorage.setItem("theme", activeTheme);
-      updateToggleIcon(activeTheme);
-    });
-  }
-});
-
-// Toggle dropdown menu
-document.getElementById("menu-toggle").addEventListener("click", function () {
-   const dropdown = document.getElementById("dropdown");
-   dropdown.classList.toggle("show"); 
-
-});
+menuToggle.addEventListener("click", () => setMenu(!dropdown.classList.contains("show")));
 
 // hide dropdown when clicking a link
-document.querySelectorAll("#dropdown button").forEach((link) => {
-    link.addEventListener("click", () => {
-        document.getElementById("dropdown").classList.remove("show");
-
-    });
+dropdown.querySelectorAll("button").forEach((link) => {
+  link.addEventListener("click", () => setMenu(false));
 });
 
-//click outside the box close the menu 
+// click outside the menu closes it
 document.addEventListener("click", (e) => {
-  const dropdown = document.getElementById("dropdown");
-  const toggle = document.getElementById("menu-toggle");
-
-  if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
-    dropdown.classList.remove("show");
+  if (!dropdown.contains(e.target) && !menuToggle.contains(e.target)) {
+    setMenu(false);
   }
 });
 
-//onclick the menu button 
-function toScreen(id){
+// nav buttons scroll to a section
+function toScreen(id) {
   const element = document.getElementById(id);
-  if(element){
-  element.scrollIntoView({behavior: "smooth"});
-}
-else {
-console.error("Element with ID '" + id + "' not found.");
-}};
-
-// copyright script
- 
- const dates = new Date();
- const fullYear = dates.getFullYear();
- document.getElementById("date").innerHTML =`© ${fullYear} All Rights reserved.`;
- 
- document.addEventListener("DOMContentLoaded", () => {
-   const fills = document.querySelectorAll(".skill-fill");
-
-   const observer = new IntersectionObserver(
-     (entries) => {
-       entries.forEach((entry) => {
-         if (entry.isIntersecting) {
-           const fill = entry.target;
-           const percentage = fill.textContent.trim();
-           fill.style.width = percentage;
-         }
-       });
-     },
-     {
-       threshold: 0.5,
-     }
-   );
-
-   fills.forEach((fill) => observer.observe(fill));
-
-   // Typing Effect
-   const text = "Database Developer & Creative Designer";
-   const typingElement = document.getElementById("typing-effect");
-   let index = 0;
-
-   function typeWriter() {
-     if (typingElement && index < text.length) {
-       typingElement.innerHTML += text.charAt(index);
-       index++;
-       setTimeout(typeWriter, 40); // decreased delay for faster typing
-     }
-   }
-
-   if (typingElement) {
-     typeWriter();
-   }
- });
-
-// Change Research Paper PDF
-function changePaper(pdfName, title, description, btnElement) {
-  // Update iframe source
-  const viewer = document.getElementById("pdf-viewer");
-  if(viewer) {
-    viewer.src = pdfName;
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  } else {
+    console.error("Element with ID '" + id + "' not found.");
   }
-  
-  // Update header title and desc
-  const titleEl = document.getElementById("active-paper-title");
-  const descEl = document.getElementById("active-paper-desc");
-  const downloadEl = document.getElementById("active-paper-download");
-  
-  if(titleEl) titleEl.innerText = title;
-  if(descEl) descEl.innerText = description;
-  if(downloadEl) downloadEl.href = pdfName;
-  
-  // Update active button styling
-  const buttons = document.querySelectorAll(".paper-btn");
-  buttons.forEach(btn => btn.classList.remove("active"));
-  btnElement.classList.add("active");
 }
 
-function openCertificate(pdfName, title) {
-  const viewer = document.getElementById('certificate-viewer');
-  const iframe = document.getElementById('certificate-iframe');
-  const fileName = document.getElementById('certificate-file-name');
-  if (iframe) iframe.src = pdfName;
+// copyright
+document.getElementById("date").innerHTML = `© ${new Date().getFullYear()} Shovit Nepal. All rights reserved.`;
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Typing effect — types and deletes each phrase in turn
+  const phrases = [
+    "I'm a Database Administrator.",
+    "I build distributed systems.",
+    "I keep data pipelines flowing.",
+  ];
+  const typingElement = document.getElementById("typing-effect");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeLoop() {
+    const phrase = phrases[phraseIndex];
+    charIndex += deleting ? -1 : 1;
+    typingElement.textContent = phrase.slice(0, charIndex);
+
+    let delay = deleting ? 30 : 60;
+    if (!deleting && charIndex === phrase.length) {
+      deleting = true;
+      delay = 1800;
+    } else if (deleting && charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      delay = 400;
+    }
+    setTimeout(typeLoop, delay);
+  }
+
+  if (typingElement) {
+    if (reduceMotion) {
+      typingElement.textContent = phrases[0];
+    } else {
+      typeLoop();
+    }
+  }
+
+  // Reveal sections as they scroll into view
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("in"));
+  }
+});
+
+// Certificate viewer (shows a watermarked image, never the downloadable PDF)
+function openCertificate(imageSrc, title) {
+  const viewer = document.getElementById("certificate-viewer");
+  const image = document.getElementById("certificate-image");
+  const fileName = document.getElementById("certificate-file-name");
+  if (image) {
+    image.src = imageSrc;
+    image.alt = title;
+  }
   if (fileName) fileName.innerText = title;
   if (viewer) {
-    viewer.classList.remove('hidden');
-    viewer.setAttribute('aria-hidden', 'false');
+    viewer.classList.remove("hidden");
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   }
 }
 
 function closeCertificate() {
-  const viewer = document.getElementById('certificate-viewer');
-  const iframe = document.getElementById('certificate-iframe');
-  if (iframe) iframe.src = '';
+  const viewer = document.getElementById("certificate-viewer");
+  const image = document.getElementById("certificate-image");
+  if (image) image.removeAttribute("src");
   if (viewer) {
-    viewer.classList.add('hidden');
-    viewer.setAttribute('aria-hidden', 'true');
+    viewer.classList.add("hidden");
+    viewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   }
 }
 
+// Certificate protection: block right-click / drag / save shortcuts and
+// blur certificates when a screenshot key is pressed or the window loses focus.
+const isViewerOpen = () => !document.getElementById("certificate-viewer").classList.contains("hidden");
+let shieldTimer;
 
+function shield(ms = 2000) {
+  document.body.classList.add("shielded");
+  clearTimeout(shieldTimer);
+  if (ms) shieldTimer = setTimeout(() => document.body.classList.remove("shielded"), ms);
+}
 
+function unshield() {
+  clearTimeout(shieldTimer);
+  document.body.classList.remove("shielded");
+}
+
+["contextmenu", "dragstart", "copy"].forEach((type) => {
+  document.addEventListener(type, (e) => {
+    if (e.target.closest && e.target.closest(".protected")) e.preventDefault();
+  });
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeCertificate();
+
+  const key = e.key.toLowerCase();
+  const mod = e.metaKey || e.ctrlKey;
+
+  // Save / print while a certificate is open
+  if (mod && (key === "s" || key === "p") && isViewerOpen()) {
+    e.preventDefault();
+    shield();
+  }
+
+  // Windows Print Screen, Win+Shift+S, macOS Cmd+Shift+3/4/5
+  if (key === "printscreen" || (e.shiftKey && (e.metaKey || e.ctrlKey))) {
+    shield(3000);
+    if (key === "printscreen" && navigator.clipboard) navigator.clipboard.writeText("").catch(() => {});
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key.toLowerCase() === "printscreen") {
+    shield(3000);
+    if (navigator.clipboard) navigator.clipboard.writeText("").catch(() => {});
+  }
+});
+
+// Snipping tools and app switching take focus away from the page
+window.addEventListener("blur", () => { if (isViewerOpen()) shield(0); });
+window.addEventListener("focus", unshield);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && isViewerOpen()) shield(0);
+  else if (!document.hidden) unshield();
+});
+
+window.addEventListener("beforeprint", () => shield(0));
+window.addEventListener("afterprint", unshield);

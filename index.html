@@ -5,430 +5,384 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shovit Nepal | Portfolio</title>
+  <meta name="description" content="Shovit Nepal — Database Administrator at Eynora Tech. Distributed databases, big data and networking.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- sticky dropdown navbar -->
-  <nav>
-    <div class="menu">
-      <button id="menu-toggle">☰ Menu</button>
-      <ul id="dropdown">
+  <!-- navbar -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="logo" onclick="toScreen('home')" aria-label="Back to top">
+        Shovit <span class="logo-accent">Nepal</span>
+      </button>
+      <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      <ul id="dropdown" class="nav-links">
         <li><button onclick="toScreen('home')">Home</button></li>
-        <li><button onclick="toScreen('about')">About Me</button></li>
-        <li><button onclick="toScreen('service')">Service</button></li>
+        <li><button onclick="toScreen('experience')">Experience</button></li>
+        <li><button onclick="toScreen('skills')">Skills</button></li>
         <li><button onclick="toScreen('research')">Research</button></li>
         <li><button onclick="toScreen('certificates')">Certificates</button></li>
         <li><button onclick="toScreen('gallery')">Gallery</button></li>
         <li><button onclick="toScreen('contact')">Contact</button></li>
       </ul>
     </div>
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-      <i class="fas fa-sun"></i>
-    </button>
   </nav>
 
-  <section id="home">
-    <div class="home-content">
-      <div class="home-text">
-        <h2 class="home-more">Hello, I am</h2>
-        <h1 class="home-intro"><span class="text-gradient">Shovit Nepal</span></h1>
-        <p class="home-desc"><span id="typing-effect"></span></p>
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="glow glow-hero"></div>
 
-        <div class="more-info">
-          <button class="info-button" onclick="toScreen('about')">More Information about Me</button>
+      <div class="hero-top reveal">
+        <div class="avatar">
+          <img src="Image/5.jpg" alt="Shovit Nepal">
         </div>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/shovit-nepal-7998b5235/" target="_blank"><i
-              class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.facebook.com/nepalshovit" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/nepalshovit/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="mailto:nepalshovit@gmail.com"><i class="fas fa-envelope"></i></a>
+
+        <div class="hero-headline">
+          <p class="hello">
+            Hello! I Am <span class="accent">Shovit Nepal</span>
+            <svg class="hello-arrow" viewBox="0 0 120 60" aria-hidden="true">
+              <path d="M115 8 C 70 0, 30 10, 12 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-dasharray="4 4" />
+              <path d="M5 40 L12 50 L20 42" fill="none" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </p>
+          <p class="hero-kicker">A Database Admin who</p>
+          <h1 class="hero-title">
+            Keeps data alive<br>
+            at any <span class="circled">scale
+              <svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M20 45 C 20 10, 180 8, 188 38 C 195 70, 30 78, 12 50 C 2 32, 60 14, 120 16" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </span>...
+          </h1>
+          <p class="hero-note">Because if the database is down, nothing else matters.</p>
         </div>
       </div>
-      <div class="home-image">
-        <img src="Image/5.jpg" alt="Shovit Nepal">
-      </div>
-    </div>
 
-
-  </section>
-
-  <section id="about">
-    <h1 class="about-info">ABOUT ME</h1>
-    <div class="about-content">
-      <div class="about-para">
-        <p class="about-description">
-          I am a Database specialist with hands-on expertise in both relational and distributed database technologies.
-          Though early in my professional journey, I have built professional-level skills in designing, deploying, and
-          managing complex database clusters and real-time data pipelines.
-          My expertise spans Apache HBase, Cassandra, Hadoop, Kafka, MySQL, and PostgreSQL, along with Linux administration,
-          basic networking skills, and tools like Git/GitHub and VMware, covering everything from distributed NoSQL systems
-          and big data platforms to real-time streaming and traditional relational databases.
-          I am passionate about building database and network infrastructure that is scalable, fault-tolerant, and
-          performance-driven. I am currently open to work on professional projects, consulting engagements, and
-          full-time
-          opportunities in database and distributed systems.
+      <div class="hero-body reveal">
+        <h2 class="typing-line"><span id="typing-effect"></span><span class="caret">|</span></h2>
+        <p class="current">
+          Currently, I'm a Database Administrator at
+          <span class="company"><i class="fas fa-database"></i> Eynora Tech</span>,
         </p>
-        <ul class="about-list" style="list-style-type: square;">
-          <li><b>Full Name :</b> Shovit Nepal</li>
-          <li><b>Date of birth :</b> June 12 1998</li>
-          <li><b>Job :</b> Database Administrator, Networking</li>
-          <li><b>Email :</b> nepalshovit@gmail.com</li>
-          <li><b>Home Address :</b> Prativa Marg, Biratnagar 10, Morang</li>
-          <li><b>Current Address :</b> Balkumari, Lalitpur</li>
 
+        <p class="bio">
+          A database specialist with hands-on expertise in relational and distributed technologies —
+          Apache HBase, Cassandra, Hadoop, Kafka, MySQL and PostgreSQL — plus Linux administration and networking.
+          I design, deploy and manage database clusters and real-time data pipelines that are scalable,
+          fault-tolerant and performance-driven.
+        </p>
+
+        <ul class="facts">
+          <li><i class="fas fa-location-dot"></i> Balkot, Bhaktapur</li>
+          <li><i class="fas fa-house"></i> From Biratnagar, Morang</li>
+          <li><i class="fas fa-cake-candles"></i> June 12, 1998</li>
         </ul>
-      </div>
 
-
-    </div>
-    <div class="cv-button">
-      <a href="Shovit_Resume.pdf" download="Shovit_Nepal_CV.pdf">
-        <button class="cv"> Download my CV</button>
-      </a>
-    </div>
-
-    <div class="about-more">
-      <h3 class="resume">RESUME</h3>
-      <h4 class="timeline-title">Experience</h4>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>eSewa LTD</h3>
-            <ul style="margin-top: 10px; padding-left: 20px;">
-              <li style="margin-bottom: 5px;">Completed an internship focused on distributed database systems and data
-                infrastructure at eSewa.</li>
-              <li style="margin-bottom: 5px;">Assisted in deploying and maintaining high-availability database clusters
-                and optimizing large-scale data operations.</li>
-              <li>Gained hands-on experience with real-time stream processing and modern data pipeline architectures.
-              </li>
-            </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="Shovit_Resume.pdf" download="Shovit_Nepal_CV.pdf">
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/shovit-nepal-7998b5235/" target="_blank" rel="noopener"
+              aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/nepalshovit" target="_blank" rel="noopener" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/nepalshovit/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+            <a href="mailto:nepalshovit@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
-
-        <!--<div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Front-end De</h3>
-            <p>+1 year of experience as a Front-end developer at Mantra Nepal</p>
-          </div>
-        </div>-->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Worldlink Communications LTD</h3>
-            <p>+2 Years of Work experience as L1 and L2 support</p>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
-
-
-
-  </section>
-
-  <section id="service">
-    <h1 class="ser-info">SERVICES</h1>
-    <!-- <h2 class="ser-ask">SERVICES I PROVIDE</h2> -->
-    <div class="service-container">
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-server"></i></div>
-        <div class="service-title">Big Data Infrastructure Setup</div>
-        <div class="service-desc">Deploy and configure scalable, highly available architectures for big data processing
-          environments.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-cubes"></i></div>
-        <div class="service-title">Distributed Database Design</div>
-        <div class="service-desc">Design robust distributed databases to ensure fault-tolerance, high availability, and
-          scalability.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-stream"></i></div>
-        <div class="service-title">Real-Time Streaming & Processing</div>
-        <div class="service-desc">Construct real-time stream processing engines to handle large-scale data in motion
-          flawlessly.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-database"></i></div>
-        <div class="service-title">Database Administration</div>
-        <div class="service-desc">Manage, optimize, and secure relational and NoSQL database systems to ensure peak
-          performance.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-cogs"></i></div>
-        <div class="service-title">Data Pipeline & ETL Development</div>
-        <div class="service-desc">Build automated, robust data pipelines for efficient Data Extraction, Transformation,
-          and Load operations.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-sitemap"></i></div>
-        <div class="service-title">Data Architecture Consulting</div>
-        <div class="service-desc">Provide expert guidance and strategize modernized, cost-effective data architecture
-          solutions.</div>
-      </div>
-      <div class="service-box">
-        <div class="service-icon"><i class="fas fa-exchange-alt"></i></div>
-        <div class="service-title">Database Migration & Integration</div>
-        <div class="service-desc">Migrate large datasets seamlessly across platforms and ensure smooth integration
-          without downtime.</div>
-      </div>
-    </div>
-
-    <h3 class="ski-info">SKILLS I KNOW</h3>
-
-    <!-- <div class="skills">
-            <ul class="skills-list" style="list-style-type: square;">
-              <li><b>HTML/CSS :</b> I have a solid understanding of HTML and CSS for building responsive and visually appealing websites.</li>
-              <li><b>JavaScript:</b> I am proficient in JavaScript and use it to create dynamic and interactive web experiences</li>
-              <li><b>nodeJS:</b> I have experience with Node.js for building fast and scalable server-side applications.</li>
-              <li><b>React :</b> I am skilled in React for building modern, component-based user interfaces.</li>
-              <li><b>Photoshop :</b> I am proficient in Photoshop for creating and editing high-quality digital graphics and designs.</li>
-              
-    
-            </ul>
-          </div> -->
-    <section class="skills-section" id="skills">
-      <!-- <h2>My Skills</h2> -->
-      <div class="skills-box">
-        <div class="skill hbase"><img src="https://cdn.simpleicons.org/apachehbase/12b5cb" alt="Hbase">
-          <span>Hbase</span>
-        </div>
-        <div class="skill cassandra"><img src="https://cdn.simpleicons.org/apachecassandra/419cdc" alt="Cassandra">
-          <span>Cassandra</span>
-        </div>
-        <div class="skill hadoop"><img src="https://cdn.simpleicons.org/apachehadoop/ffcc00" alt="Hadoop">
-          <span>Hadoop</span>
-        </div>
-        <div class="skill rdbms">
-          <div style="display:flex; gap:15px;"><img src="https://cdn.simpleicons.org/mysql/00758F" alt="MySQL"
-              style="width: 3rem; height: 3rem;"><img src="https://cdn.simpleicons.org/postgresql/4169E1"
-              alt="PostgreSQL" style="width: 3rem; height: 3rem;"></div> <span style="font-size: 1.1rem;">RDBMS (MySQL,
-            PostgreSQL)</span>
-        </div>
-        <div class="skill linux"><img src="https://cdn.simpleicons.org/linux/fcc624" alt="Linux">
-          <span>Linux</span>
-        </div>
-        <div class="skill github"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub"> <span>Git / GitHub</span>
-        </div>
-        <div class="skill networking"><i class="fas fa-network-wired"></i>
-          <span>Networking</span>
-        </div>
-        <div class="skill kafka"><img src="https://cdn.simpleicons.org/apachekafka/f2f2f2" alt="Kafka">
-          <span>Kafka</span>
-        </div>
-        <div class="skill vmware"><img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware"> <span>VMware</span></div>
       </div>
     </section>
 
+    <!-- WORK EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="glow glow-left"></div>
+      <h2 class="section-title reveal">Work Experience</h2>
 
-  </section>
+      <div class="exp-grid">
+        <article class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-database"></i></div>
+          <div class="exp-body">
+            <span class="tag tag-live"><span class="live-dot"></span> Current</span>
+            <h3>Eynora Tech</h3>
+            <p>Database Administrator — managing, securing and tuning production database systems.</p>
+          </div>
+        </article>
 
-  <section id="research">
-    <h1 class="research-title">RESEARCH & PUBLICATIONS</h1>
-    <p class="research-desc">
-      Explore my latest professional research in database infrastructure, distributed systems, and real-time data
-      pipelines.
-    </p>
+        <article class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-server"></i></div>
+          <div class="exp-body">
+            <span class="tag">Internship</span>
+            <h3>eSewa LTD</h3>
+            <p>Deployed high-availability database clusters, real-time streaming and data pipelines.</p>
+            <button class="btn-small" onclick="openCertificate('Image/cert_esewa_internship.jpg', 'eSewa Internship Certificate')">
+              Learn more
+            </button>
+          </div>
+        </article>
 
-    <div class="research-wrapper">
-      <div class="paper-sidebar">
-        <div class="paper-buttons-vertical">
-          <button class="paper-btn active"
-            onclick="changePaper('research1.pdf', 'HBase Setup Guide', 'A complete guide to configuring and deploying an Apache HBase cluster on top of HDFS, including ZooKeeper coordination and node tuning.', this)">
-            <i class="fas fa-file-pdf"></i> HBase
-          </button>
-          <button class="paper-btn"
-            onclick="changePaper('research2.pdf', 'Cassandra Setup Guide', 'A comprehensive step-by-step guide for deploying, configuring, and optimizing an Apache Cassandra cluster for high availability.', this)">
-            <i class="fas fa-file-pdf"></i> Cassandra
-          </button>
-          <button class="paper-btn"
-            onclick="changePaper('research3.pdf', 'Data Layer of NPCI', 'An architectural overview and analysis of the massive, highly-available data infrastructure powering the National Payments Corporation of India (NPCI).', this)">
-            <i class="fas fa-file-pdf"></i> Architecture
-          </button>
+        <article class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-network-wired"></i></div>
+          <div class="exp-body">
+            <span class="tag">2+ years</span>
+            <h3>Worldlink Communications</h3>
+            <p>L1 &amp; L2 network support — troubleshooting connectivity for thousands of customers.</p>
+            <button class="btn-small" onclick="openCertificate('Image/cert_worldlink_support.jpg', 'Certificate of Service')">
+              Learn more
+            </button>
+          </div>
+        </article>
+
+        <article class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-file-lines"></i></div>
+          <div class="exp-body">
+            <span class="tag">Résumé</span>
+            <h3>Full work history</h3>
+            <p>Everything in one place — roles, skills, education and achievements.</p>
+            <a class="btn-small" href="Shovit_Resume.pdf" target="_blank" rel="noopener">View CV</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS / ORBIT -->
+    <section id="skills" class="section skills">
+      <p class="skills-lead reveal">
+        I keep data flowing with <span class="accent">fault-tolerant</span> systems<br>
+        <span class="muted">built on tools I use every day</span>
+      </p>
+
+      <div class="skill-rows reveal">
+        <div class="skill-row">
+          <span class="skill-chip" data-label="HBase"><img src="https://cdn.simpleicons.org/apachehbase/12b5cb" alt="HBase"></span>
+          <span class="skill-chip" data-label="Cassandra"><img src="https://cdn.simpleicons.org/apachecassandra/419cdc" alt="Cassandra"></span>
+          <span class="skill-chip" data-label="Hadoop"><img src="https://cdn.simpleicons.org/apachehadoop/ffcc00" alt="Hadoop"></span>
+          <span class="skill-chip" data-label="Kafka"><img src="https://cdn.simpleicons.org/apachekafka/ffffff" alt="Kafka"></span>
+          <span class="skill-chip" data-label="MySQL"><img src="https://cdn.simpleicons.org/mysql/4fa3d1" alt="MySQL"></span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-chip" data-label="PostgreSQL"><img src="https://cdn.simpleicons.org/postgresql/6b8fe8" alt="PostgreSQL"></span>
+          <span class="skill-chip" data-label="Linux"><img src="https://cdn.simpleicons.org/linux/fcc624" alt="Linux"></span>
+          <span class="skill-chip" data-label="Git / GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"></span>
+          <span class="skill-chip" data-label="VMware"><img src="https://cdn.simpleicons.org/vmware/9aa5b1" alt="VMware"></span>
+          <span class="skill-chip" data-label="Networking"><i class="fas fa-network-wired"></i></span>
         </div>
       </div>
 
-      <div class="paper-content">
-        <div class="paper-header">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-            <div style="flex: 1; min-width: 250px;">
-              <h3 id="active-paper-title">HBase Setup Guide</h3>
-              <p id="active-paper-desc">A complete guide to configuring and deploying an Apache HBase cluster on top of
-                HDFS, including ZooKeeper coordination and node tuning.</p>
-            </div>
-            <a id="active-paper-download" href="research1.pdf" target="_blank"
-              style="padding: 10px 20px; font-size: 0.95rem; font-weight: 600; background: transparent; border: 2px solid var(--accent); color: var(--accent); border-radius: 50px; text-decoration: none; transition: all 0.3s ease; white-space: nowrap;">
-              <i class="fas fa-external-link-alt" style="margin-right: 5px;"></i> Open PDF
-            </a>
-          </div>
-        </div>
-        <div class="pdf-frame-container">
-          <div class="pdf-browser-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <div class="pdf-address-bar">document-viewer.pdf</div>
-          </div>
-          <iframe id="pdf-viewer" src="research1.pdf" class="pdf-viewer"></iframe>
+      <div class="orbit reveal" aria-hidden="true">
+        <svg class="orbit-lines" viewBox="0 0 400 160" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#a78bfa" stop-opacity="0.05" />
+              <stop offset="1" stop-color="#a78bfa" stop-opacity="0.7" />
+            </linearGradient>
+          </defs>
+          <path d="M40 0 C 40 90, 200 80, 200 160" />
+          <path d="M120 0 C 120 90, 200 80, 200 160" />
+          <path d="M200 0 L 200 160" />
+          <path d="M280 0 C 280 90, 200 80, 200 160" />
+          <path d="M360 0 C 360 90, 200 80, 200 160" />
+        </svg>
+        <div class="orbit-core">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="orb"><i class="fas fa-database"></i></div>
+          <i class="float f1 fas fa-code"></i>
+          <i class="float f2 fas fa-server"></i>
+          <i class="float f3 fas fa-terminal"></i>
+          <i class="float f4 fas fa-cloud"></i>
+          <i class="float f5 fas fa-shield-halved"></i>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="certificates">
-    <h1 class="certificates-title">CERTIFICATES</h1>
-    <p class="certificates-desc">
-      A collection of my professional training, experience, and academic certifications.
-    </p>
-    <div class="certificates-grid">
-      <!-- Certificate 1: eSewa Internship -->
-      <button type="button" class="certificate-card" onclick="openCertificate('esewa_internship.pdf', 'eSewa Internship Certificate')">
-        <div class="certificate-card-header">
-          <h3>eSewa Internship Certificate</h3>
-          <p class="cert-org">eSewa LTD</p>
-        </div>
-        <div class="certificate-card-body">
-          <p class="cert-detail">Completed Database Systems Internship focusing on distributed clusters, Cassandra, and HBase setup.</p>
-        </div>
-        <div class="certificate-card-footer">
-          <span class="pdf-file-name">esewa_internship.pdf</span>
-          <span class="certificate-action"><i class="fas fa-eye"></i> View PDF</span>
-        </div>
-      </button>
-
-      <!-- Certificate 2: eSewa Advanced DB -->
-      <button type="button" class="certificate-card" onclick="openCertificate('esewa_database.pdf', 'Supervisor\'s Recognition')">
-        <div class="certificate-card-header">
-          <h3>Supervisor's Recognition</h3>
-          <p class="cert-org">eSewa LTD</p>
-        </div>
-        <div class="certificate-card-body">
-          <p class="cert-detail">Received Supervisor's Recognition for excellent performance in database administration and successful completion of all assigned tasks.</p>
-        </div>
-        <div class="certificate-card-footer">
-          <span class="pdf-file-name">esewa_database.pdf</span>
-          <span class="certificate-action"><i class="fas fa-eye"></i> View PDF</span>
-        </div>
-      </button>
-
-      <!-- Certificate 3: Worldlink Support -->
-      <button type="button" class="certificate-card" onclick="openCertificate('worldlink_support.pdf', 'Certificate of Service')">
-        <div class="certificate-card-header">
-          <h3>Certificate of Service</h3>
-          <p class="cert-org">Worldlink Communications LTD</p>
-        </div>
-        <div class="certificate-card-body">
-          <p class="cert-detail">Over 2 years of excellent technical service and L1/L2 network support specialist achievements.</p>
-        </div>
-        <div class="certificate-card-footer">
-          <span class="pdf-file-name">worldlink_support.pdf</span>
-          <span class="certificate-action"><i class="fas fa-eye"></i> View PDF</span>
-        </div>
-      </button>
-    </div>
-    <div id="certificate-viewer" class="certificate-viewer hidden" aria-hidden="true">
-      <div class="certificate-viewer-backdrop" onclick="closeCertificate()"></div>
-      <div class="certificate-viewer-content">
-        <button type="button" class="certificate-viewer-close" onclick="closeCertificate()">× Close</button>
-        <div class="pdf-browser-bar certificate-viewer-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <div class="pdf-address-bar" id="certificate-file-name">certificate.pdf</div>
-        </div>
-        <iframe id="certificate-iframe" class="certificate-viewer-frame" src="" title="Certificate Viewer"></iframe>
+      <h3 class="sub-title reveal">What I do</h3>
+      <div class="services">
+        <div class="service reveal"><i class="fas fa-server"></i><div><h4>Big Data Infrastructure</h4><p>Scalable, highly available architectures for big data processing.</p></div></div>
+        <div class="service reveal"><i class="fas fa-cubes"></i><div><h4>Distributed Database Design</h4><p>Fault-tolerant, highly available and scalable data stores.</p></div></div>
+        <div class="service reveal"><i class="fas fa-stream"></i><div><h4>Real-Time Streaming</h4><p>Stream processing engines for large-scale data in motion.</p></div></div>
+        <div class="service reveal"><i class="fas fa-database"></i><div><h4>Database Administration</h4><p>Manage, optimise and secure relational and NoSQL systems.</p></div></div>
+        <div class="service reveal"><i class="fas fa-gears"></i><div><h4>Data Pipelines &amp; ETL</h4><p>Automated, robust extraction, transformation and loading.</p></div></div>
+        <div class="service reveal"><i class="fas fa-sitemap"></i><div><h4>Data Architecture Consulting</h4><p>Modern, cost-effective data architecture strategy.</p></div></div>
+        <div class="service reveal"><i class="fas fa-right-left"></i><div><h4>Migration &amp; Integration</h4><p>Move large datasets across platforms without downtime.</p></div></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery">
-    <h1 class="gallery-info">GALLERY</h1>
-    <p style="text-align: center; color: var(--text-muted); font-size: 1.2rem; margin-bottom: 50px;">A collection of my
-      recent captures and memories.</p>
-    <!-- <h2 class="blog" style="display: block; margin-top: 60px;">MY PHOTOS</h2> -->
-    <div class="gallery-container">
-      <img src="Image/9.jpg" alt="9">
-      <img src="Image/2.jpg" alt="2">
-      <!-- <img src="Image/3.jpg" alt="3"> -->
-      <img src="Image/4.jpg" alt="4">
-      <img src="Image/5.jpg" alt="5">
-      <img src="Image/s.jpg" alt="s">
-      <img src="Image/6.jpg" alt="6">
-      <img src="Image/7.jpg" alt="7">
-      <img src="Image/8.jpg" alt="8">
-    </div>
+    <!-- RESEARCH / FEATURED -->
+    <section id="research" class="section">
+      <h2 class="section-title reveal">Research &amp; Publications</h2>
 
-
-  </section>
-
-  <section id="contact">
-
-    <h1 class="contact-info">CONTACT</h1>
-    <!-- <h2 class="contact-description">FEEL FREE TO CONTACT ME</h2> -->
-    <div class="contact-container">
-      <!-- contact-form -->
-      <form class="contact-form" action="https://formspree.io/f/xgorbwjn" method="POST">
-
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <input type="email" name="Email" placeholder="Your Email" required>
-        <input type="tel" name="Phone" placeholder="Your Phone Number" required>
-        <textarea name="Message" placeholder="Your Note" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-
-      <!-- contact info boxes -->
-      <div class="contact-boxes">
-        <div class="contact-box">
-          <i class="icon fas fa-envelope"></i>
-          <div>
-            <h3>Email</h3>
-            <p>nepalshovit@gmail.com</p>
+      <article class="feature reveal">
+        <div class="glow glow-feature"></div>
+        <div class="feature-text">
+          <span class="eyebrow">Featured Research</span>
+          <h3>HBase Setup Guide</h3>
+          <div class="feature-desc">
+            A complete guide to configuring and deploying an Apache HBase cluster on top of HDFS,
+            including ZooKeeper coordination and node tuning.
+          </div>
+          <div class="feature-links">
+            <a href="research1.pdf" target="_blank" rel="noopener" aria-label="Open PDF"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="research1.pdf" download aria-label="Download PDF"><i class="fas fa-download"></i></a>
           </div>
         </div>
-        <div class="contact-box">
-          <i class="icon fas fa-phone"></i>
-          <div>
-            <h3>Phone</h3>
-            <p>+977 9842087460</p>
+        <a class="feature-media" href="research1.pdf" target="_blank" rel="noopener" aria-label="Open HBase Setup Guide">
+          <iframe src="research1.pdf#toolbar=0&navpanes=0&view=FitH" tabindex="-1" loading="lazy" title="HBase Setup Guide preview"></iframe>
+        </a>
+      </article>
+
+      <article class="feature feature-reverse reveal">
+        <div class="glow glow-feature"></div>
+        <div class="feature-text">
+          <span class="eyebrow">Featured Research</span>
+          <h3>Cassandra Setup Guide</h3>
+          <div class="feature-desc">
+            A comprehensive step-by-step guide for deploying, configuring and optimising an Apache Cassandra
+            cluster for high availability.
+          </div>
+          <div class="feature-links">
+            <a href="research2.pdf" target="_blank" rel="noopener" aria-label="Open PDF"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="research2.pdf" download aria-label="Download PDF"><i class="fas fa-download"></i></a>
           </div>
         </div>
-        <div class="contact-box">
-          <i class="icon fas fa-map-marker-alt"></i>
-          <div>
-            <h3>Location</h3>
-            <p>Balkumari, Lalitpur, Nepal</p>
+        <a class="feature-media" href="research2.pdf" target="_blank" rel="noopener" aria-label="Open Cassandra Setup Guide">
+          <iframe src="research2.pdf#toolbar=0&navpanes=0&view=FitH" tabindex="-1" loading="lazy" title="Cassandra Setup Guide preview"></iframe>
+        </a>
+      </article>
+
+      <article class="feature reveal">
+        <div class="glow glow-feature"></div>
+        <div class="feature-text">
+          <span class="eyebrow">Featured Research</span>
+          <h3>Data Layer of NPCI</h3>
+          <div class="feature-desc">
+            An architectural overview of the massive, highly-available data infrastructure powering the
+            National Payments Corporation of India (NPCI).
+          </div>
+          <div class="feature-links">
+            <a href="research3.pdf" target="_blank" rel="noopener" aria-label="Open PDF"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a href="research3.pdf" download aria-label="Download PDF"><i class="fas fa-download"></i></a>
+          </div>
+        </div>
+        <a class="feature-media" href="research3.pdf" target="_blank" rel="noopener" aria-label="Open Data Layer of NPCI">
+          <iframe src="research3.pdf#toolbar=0&navpanes=0&view=FitH" tabindex="-1" loading="lazy" title="Data Layer of NPCI preview"></iframe>
+        </a>
+      </article>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section">
+      <div class="glow glow-right"></div>
+      <h2 class="section-title reveal">Certificates</h2>
+
+      <div class="cert-grid protected">
+        <button type="button" class="cert-card reveal" onclick="openCertificate('Image/cert_esewa_internship.jpg', 'eSewa Internship Certificate')">
+          <div class="cert-thumb"><img src="Image/cert_esewa_internship.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cert-info">
+            <span class="eyebrow">eSewa LTD</span>
+            <h3>Internship Certificate</h3>
+            <p>Database Systems internship — distributed clusters, Cassandra and HBase.</p>
+          </div>
+        </button>
+
+        <button type="button" class="cert-card reveal" onclick="openCertificate('Image/cert_esewa_database.jpg', 'Supervisor\'s Recognition')">
+          <div class="cert-thumb"><img src="Image/cert_esewa_database.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cert-info">
+            <span class="eyebrow">eSewa LTD</span>
+            <h3>Supervisor's Recognition</h3>
+            <p>Excellent performance in database administration and all assigned tasks.</p>
+          </div>
+        </button>
+
+        <button type="button" class="cert-card reveal" onclick="openCertificate('Image/cert_worldlink_support.jpg', 'Certificate of Service')">
+          <div class="cert-thumb"><img src="Image/cert_worldlink_support.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cert-info">
+            <span class="eyebrow">Worldlink Communications</span>
+            <h3>Certificate of Service</h3>
+            <p>2+ years of technical service as an L1/L2 network support specialist.</p>
+          </div>
+        </button>
+      </div>
+
+      <div id="certificate-viewer" class="viewer hidden" aria-hidden="true">
+        <div class="viewer-backdrop" onclick="closeCertificate()"></div>
+        <div class="viewer-content" role="dialog" aria-modal="true" aria-labelledby="certificate-file-name">
+          <div class="viewer-bar">
+            <span id="certificate-file-name">Certificate</span>
+            <button type="button" class="viewer-close" onclick="closeCertificate()" aria-label="Close"><i class="fas fa-xmark"></i></button>
+          </div>
+          <div class="viewer-stage protected">
+            <img id="certificate-image" src="" alt="" draggable="false">
+            <div class="watermark" aria-hidden="true"></div>
+            <div class="shield-msg">Screenshots are disabled for certificates</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/shovit-nepal-7998b5235/" target="_blank"><i
-          class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.facebook.com/nepalshovit" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/nepalshovit/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="mailto:nepalshovit@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <h2 class="section-title reveal">Gallery</h2>
+      <p class="section-sub reveal">A collection of recent captures and memories.</p>
+      <div class="gallery reveal">
+        <img src="Image/9.jpg" alt="Photo 1" loading="lazy">
+        <img src="Image/2.jpg" alt="Photo 2" loading="lazy">
+        <img src="Image/4.jpg" alt="Photo 3" loading="lazy">
+        <img src="Image/5.jpg" alt="Photo 4" loading="lazy">
+        <img src="Image/s.jpg" alt="Photo 5" loading="lazy">
+        <img src="Image/6.jpg" alt="Photo 6" loading="lazy">
+        <img src="Image/7.jpg" alt="Photo 7" loading="lazy">
+        <img src="Image/8.jpg" alt="Photo 8" loading="lazy">
+      </div>
+    </section>
 
-    </div>
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="glow glow-left"></div>
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <h2 class="section-title">Contact</h2>
+          <p>
+            Have a database to scale, a cluster to deploy, or a project in mind?
+            I'm always happy to talk shop. Let's connect.
+          </p>
+          <ul class="contact-list">
+            <li><i class="fas fa-envelope"></i><a href="mailto:nepalshovit@gmail.com">nepalshovit@gmail.com</a></li>
+            <li><i class="fas fa-phone"></i><a href="tel:+9779842087460">+977 9842087460</a></li>
+            <li><i class="fas fa-location-dot"></i>Balkot, Bhaktapur, Nepal</li>
+          </ul>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/shovit-nepal-7998b5235/" target="_blank" rel="noopener"
+              aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/nepalshovit" target="_blank" rel="noopener" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/nepalshovit/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
 
+        <form class="contact-form reveal" action="https://formspree.io/f/xgorbwjn" method="POST">
+          <input type="text" name="Name" placeholder="Your name" required>
+          <input type="email" name="Email" placeholder="Your email" required>
+          <input type="tel" name="Phone" placeholder="Your phone number" required>
+          <textarea name="Message" placeholder="Your message" rows="4" required></textarea>
+          <button type="submit" class="btn btn-primary">Send message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-
-  </section>
-
-  <footer id="date" style="text-align:center;"></footer>
+  <footer id="date"></footer>
 
   <script src="app.js"></script>
 </body>
